@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Jogo de Futebol</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container" id="setup-screen">
+      <h1>Configuração dos Times</h1>
+      <div class="team-setup">
+        <input type="text" id="team1" placeholder="Nome do Time 1" />
+        <textarea
+          id="players1"
+          placeholder="Jogadores do Time 1 (um por linha)"
+        ></textarea>
+        <input type="text" id="team2" placeholder="Nome do Time 2" />
+        <textarea
+          id="players2"
+          placeholder="Jogadores do Time 2 (um por linha)"
+        ></textarea>
+      </div>
+      <button id="start-game">Iniciar Jogo</button>
+    </div>
+
+    <div class="container" id="scoreboard-screen" style="display: none">
+      <h1>Marcador de Tempo e Gols</h1>
+      <div class="timer">
+        <span id="timer-display">00:00</span>
+        <button id="start-timer">Iniciar</button>
+        <button id="stop-timer">Parar</button>
+        <button id="reset-timer">Reiniciar</button>
+      </div>
+      <div class="scoreboard">
+        <h2>Placar</h2>
+        <div>
+          <span id="team1-name">Time 1</span>: <span id="team1-score">0</span>
+          <button onclick="addGoal('team1')">Adicionar Gol</button>
+        </div>
+        <div>
+          <span id="team2-name">Time 2</span>: <span id="team2-score">0</span>
+          <button onclick="addGoal('team2')">Adicionar Gol</button>
+        </div>
+      </div>
+      <button id="end-game">Finalizar Jogo</button>
+      <button id="edit-teams">Editar Times e Jogadores</button>
+    </div>
+
+    <div id="confirm-modal" class="modal">
+      <div class="modal-content">
+        <p>Tem certeza que deseja finalizar o jogo?</p>
+        <button id="confirm-end">Sim</button>
+        <button id="cancel-end">Não</button>
+      </div>
+    </div>
+
+    <div id="reset-confirm-modal" class="modal">
+      <div class="modal-content">
+        <p>Tem certeza que deseja reiniciar o cronômetro?</p>
+        <button id="confirm-reset">Sim</button>
+        <button id="cancel-reset">Não</button>
+      </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <h2>Editar Times e Jogadores</h2>
+        <textarea
+          id="edit-players1"
+          placeholder="Jogadores do Time 1 (um por linha)"
+        ></textarea>
+        <textarea
+          id="edit-players2"
+          placeholder="Jogadores do Time 2 (um por linha)"
+        ></textarea>
+        <button id="save-edits">Salvar Alterações</button>
+        <button id="close-edit-modal">Cancelar</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
